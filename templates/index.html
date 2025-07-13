@@ -95,6 +95,20 @@
   <img src="{{ heatmap_path }}" class="img-fluid w-100" alt="Heatmap">
 </div>
 {% endif %}
+{% if s_plot_path %}
+<div class="container-fluid mt-5">
+  <h5 class="text-center">Option Price vs Stock Price (Heston)</h5>
+  <img src="{{ s_plot_path }}" class="img-fluid w-100" alt="Heston vs S">
+</div>
+{% endif %}
+
+{% if rho_plot_path %}
+<div class="container-fluid mt-5">
+  <h5 class="text-center">Option Price vs Correlation (ρ)</h5>
+  <img src="{{ rho_plot_path }}" class="img-fluid w-100" alt="Heston vs rho">
+</div>
+{% endif %}
+
 
   </div>
 

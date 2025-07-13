@@ -65,9 +65,36 @@ def index():
             rho = float(request.form['rho'])
             v0 = float(request.form['v0'])
             result = heston_price(S, K, T, r, kappa, theta, sigma_h, rho, v0, option_type)
+            # Option Price vs S
+            S_vals = np.linspace(50, 150, 100)
+            s_prices = [heston_price(S_, K, T, r, kappa, theta, sigma_h, rho, v0, option_type) for S_ in S_vals]
+            plt.figure()
+            plt.plot(S_vals, s_prices)
+            plt.title(f'{option_type.capitalize()} Option Price vs Stock Price (Heston)')
+            plt.xlabel('Stock Price (S)')
+            plt.ylabel('Option Price')
+            plt.grid(True)
+            os.makedirs('static', exist_ok=True)
+            s_plot_path = 'static/heston_vs_s.png'
+            plt.savefig(s_plot_path)
+            plt.close()
+
+            # Option Price vs Correlation
+            rho_vals = np.linspace(-1, 1, 100)
+            rho_prices = [heston_price(S, K, T, r, kappa, theta, sigma_h, rho_, v0, option_type) for rho_ in rho_vals]
+            plt.figure()
+            plt.plot(rho_vals, rho_prices)
+            plt.title(f'{option_type.capitalize()} Option Price vs Correlation (ρ) (Heston)')
+            plt.xlabel('Correlation ρ')
+            plt.ylabel('Option Price')
+            plt.grid(True)
+            rho_plot_path = 'static/heston_vs_rho.png'
+            plt.savefig(rho_plot_path)
+            plt.close()
 
 
-    return render_template('index.html', result=result, plot_path=plot_path, bs_plot_path=bs_plot_path, heatmap_path=heatmap_path)
+
+    return render_template('index.html', result=result, plot_path=plot_path, bs_plot_path=bs_plot_path, heatmap_path=heatmap_path, s_plot_path=s_plot_path, rho_plot_path=rho_plot_path)
 
 if __name__ == '__main__':
     app.run(debug=True)
