@@ -179,23 +179,23 @@
     <form method="POST" class="row g-3">
       <div class="form-section">
         <label>Stock Price (S)</label>
-        <input class="form-control" name="S" required />
+        <input class="form-control" name="S" required value="{{ form_data['S'] }}" />
       </div>
       <div class="form-section">
         <label>Strike Price (K)</label>
-        <input class="form-control" name="K" required />
+        <input class="form-control" name="K" required value="{{ form_data['K'] }}" />
       </div>
       <div class="form-section">
         <label>Time to Maturity (T in years)</label>
-        <input class="form-control" name="T" required />
+        <input class="form-control" name="T" required value="{{ form_data['T'] }}" />
       </div>
       <div class="form-section">
         <label>Risk-Free Rate (r)</label>
-        <input class="form-control" name="r" required />
+        <input class="form-control" name="r" required value="{{ form_data['r'] }}" />
       </div>
       <div class="form-section">
         <label>Volatility (σ)</label>
-        <input class="form-control" name="sigma" required />
+        <input class="form-control" name="sigma" required value="{{ form_data['sigma'] }}" />
       </div>
 
       <div id="heston-params" style="display: none">
