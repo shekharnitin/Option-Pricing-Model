@@ -14,6 +14,9 @@ def index():
     plot_path = None
     bs_plot_path = None
     heatmap_path = None
+    s_plot_path = None
+    rho_plot_path = None
+
 
     if request.method == 'POST':
         S = float(request.form['S'])
