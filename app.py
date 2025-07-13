@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from black_scholes import black_scholes
+from black_scholes import black_scholes, generate_bs_heatmap
 from binomial_model import binomial_option_price
 from heston_model import heston_price
 import matplotlib.pyplot as plt
@@ -23,9 +23,15 @@ def index():
         option_type = request.form['option_type']
         model = request.form['model']
         steps = int(request.form.get('steps', 100))
+        show_heatmap = 'show_heatmap' in request.form
+
 
         if model == 'black_scholes':
             result = black_scholes(S, K, T, r, sigma, option_type)
+            if show_heatmap:
+                heatmap_path = generate_bs_heatmap(K, r, sigma, T, option_type)
+            else:
+                heatmap_path = None
             S_values = np.linspace(0.5 * S, 1.5 * S, 100)
             bs_prices = [black_scholes(s, K, T, r, sigma, option_type) for s in S_values]
             os.makedirs('static', exist_ok=True)
@@ -60,7 +66,7 @@ def index():
             result = heston_price(S, K, T, r, kappa, theta, sigma_h, rho, v0, option_type)
 
 
-    return render_template('index.html', result=result, plot_path=plot_path, bs_plot_path=bs_plot_path)
+    return render_template('index.html', result=result, plot_path=plot_path, bs_plot_path=bs_plot_path, heatmap_path=heatmap_path)
 
 if __name__ == '__main__':
     app.run(debug=True)
