@@ -84,9 +84,9 @@
     {% endif %}
 
     {% if bs_plot_path %}
-    <div class="mt-4">
-      <h5>Option Price vs Stock Price (Black-Scholes)</h5>
-      <img src="{{ bs_plot_path }}" class="img-fluid" alt="BS plot">
+    <div class="container-fluid mt-4">
+      <h5 class="text-center">Option Price vs Stock Price (Black-Scholes)</h5>
+      <img src="{{ bs_plot_path }}" class="img-fluid w-100" alt="BS plot">
     </div>
     {% endif %}
     {% if heatmap_path %}
