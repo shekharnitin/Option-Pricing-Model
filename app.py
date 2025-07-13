@@ -13,10 +13,9 @@ def index():
     result = None
     plot_path = None
     bs_plot_path = None
-    bs_heatmap_path = None
+    heatmap_path = None
     s_plot_path = None
     rho_plot_path = None
-    heston_heatmap_path = None
 
 
     if request.method == 'POST':
