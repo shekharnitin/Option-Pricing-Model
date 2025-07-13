@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from black_scholes import black_scholes, generate_bs_heatmap
 from binomial_model import binomial_option_price
-from heston_model import heston_price
+from heston_model import heston_price, generate_heston_heatmap
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -94,6 +94,9 @@ def index():
             rho_plot_path = 'static/heston_vs_rho.png'
             plt.savefig(rho_plot_path)
             plt.close()
+            if show_heatmap:
+                heatmap_path = generate_heston_heatmap(K, T, r, kappa, theta, sigma_h, v0, option_type)
+
 
 
 
