@@ -10,14 +10,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    call_result = None
-    put_result = None
+    call_price = None
+    put_price = None
     plot_path = None
     bs_plot_path = None
     heatmap_path = None
     s_plot_path = None
     rho_plot_path = None
-    model = None
 
     if request.method == 'POST':
         S = float(request.form['S'])
