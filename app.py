@@ -21,7 +21,7 @@ def index():
         r = float(request.form['r'])
         sigma = float(request.form['sigma'])
         option_type = request.form['option_type']
-        model = request.form.get['model']
+        model = request.form['model']
         steps = int(request.form.get('steps', 100))
 
         if model == 'black_scholes':
