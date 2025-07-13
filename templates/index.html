@@ -120,7 +120,7 @@
             id="show_heatmap"
           />
           <label class="form-check-label" for="show_heatmap">
-            Show Heatmap (Only for Black-Scholes)
+            Show Heatmap (Only for Black-Scholes and Heston)
           </label>
         </div>
 
@@ -156,26 +156,15 @@
         </div>
       </div>
       {% endif %} {% if heatmap_path %}
-      <div class="container-fluid mt-5">
-        <h5 class="text-center">Option Price Heatmap (Black-Scholes)</h5>
-        <img src="{{ heatmap_path }}" class="img-fluid w-100" alt="Heatmap" />
-        <div class="text-center mt-2">
-          <a href="{{ heatmap_path }}" download class="btn btn-outline-primary"
-            >Download Heatmap</a
-          >
-        </div>
-      </div>
-      {% endif %} {% if heatmap_path %}
-      <div class="container-fluid mt-5">
-        <h5 class="text-center">Heston Option Price Heatmap</h5>
-        <img src="{{ heatmap_path }}" class="img-fluid w-100" alt="Heatmap" />
-        <div class="text-center mt-2">
-          <a href="{{ heatmap_path }}" download class="btn btn-outline-primary"
-            >Download Heatmap</a
-          >
-        </div>
-      </div>
-      {% endif %} {% if s_plot_path %}
+<div class="container-fluid mt-5">
+  <h5 class="text-center">Option Price Heatmap</h5>
+  <img src="{{ heatmap_path }}" class="img-fluid w-100" alt="Heatmap">
+  <div class="text-center mt-2">
+    <a href="{{ heatmap_path }}" download class="btn btn-outline-primary">Download Heatmap</a>
+  </div>
+</div>
+{% endif %}
+ {% if s_plot_path %}
       <div class="container-fluid mt-5">
         <h5 class="text-center">Option Price vs Stock Price (Heston)</h5>
         <img

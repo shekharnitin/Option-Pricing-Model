@@ -13,9 +13,10 @@ def index():
     result = None
     plot_path = None
     bs_plot_path = None
-    heatmap_path = None
+    bs_heatmap_path = None
     s_plot_path = None
     rho_plot_path = None
+    heston_heatmap_path = None
 
 
     if request.method == 'POST':
@@ -34,8 +35,6 @@ def index():
             result = black_scholes(S, K, T, r, sigma, option_type)
             if show_heatmap:
                 heatmap_path = generate_bs_heatmap(K, r, sigma, T, option_type)
-            else:
-                heatmap_path = None
             S_values = np.linspace(0.5 * S, 1.5 * S, 100)
             bs_prices = [black_scholes(s, K, T, r, sigma, option_type) for s in S_values]
             os.makedirs('static', exist_ok=True)
@@ -96,6 +95,7 @@ def index():
             plt.close()
             if show_heatmap:
                 heatmap_path = generate_heston_heatmap(K, T, r, kappa, theta, sigma_h, v0, option_type)
+
 
 
 
