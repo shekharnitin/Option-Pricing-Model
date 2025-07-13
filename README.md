@@ -2,8 +2,6 @@
 
 An interactive Flask-based web application to calculate and visualize European option prices using multiple models: **Binomial Tree**, **Black-Scholes**, and **Heston Stochastic Volatility**.
 
-![Screenshot](./static/screenshot.png)
-
 ---
 
 ## 🚀 Features
