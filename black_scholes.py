@@ -22,7 +22,7 @@ def generate_bs_heatmap(K, r, sigma, T, option_type):
 
     for i, S in enumerate(S_vals):
         for j, t in enumerate(T_vals):
-            heatmap_data[i, j] = black_scholes_price(S, K, t, r, sigma, option_type)
+            heatmap_data[i, j] = black_scholes(S, K, t, r, sigma, option_type)
 
     plt.figure(figsize=(10, 6))
     plt.imshow(heatmap_data, aspect='auto', origin='lower',
