@@ -65,10 +65,12 @@ def index():
         # Plot: Call Option Price vs Stock Price
         S_values = np.linspace(0.5 * S, 1.5 * S, 100)
         call_prices = [black_scholes(s, K, T, r, sigma, 'call') for s in S_values]
+        put_prices = [black_scholes(s, K, T, r, sigma, 'put') for s in S_values]
         bs_plot_path = 'static/bs_vs_s.png'
         plt.figure()
-        plt.plot(S_values, call_prices, label="Call Option")
-        plt.title("Call Option Price vs Stock Price (Black-Scholes)")
+        plt.plot(S_values, call_prices, label="Call Option", color='green')
+        plt.plot(S_values, put_prices, label="Put Option", color='red')
+        plt.title("Option Prices vs Stock Price (Black-Scholes)")
         plt.xlabel('Stock Price (S)')
         plt.ylabel('Option Price')
         plt.grid(True)
@@ -84,11 +86,13 @@ def index():
         put_price = binomial_option_price(S, K, T, r, sigma, steps, 'put')
 
         # Plot
-        prices = [binomial_option_price(S, K, T, r, sigma, s, 'call') for s in range(1, steps + 1)]
+        call_prices = [binomial_option_price(S, K, T, r, sigma, s, 'call') for s in range(1, steps + 1)]
+        put_prices = [binomial_option_price(S, K, T, r, sigma, s, 'put') for s in range(1, steps + 1)]
         plot_path = 'static/option_price_plot.png'
         plt.figure()
-        plt.plot(range(1, steps + 1), prices, label="Call Option", marker='o')
-        plt.title("Call Option Price vs Steps (Binomial)")
+        plt.plot(range(1, steps + 1), call_prices, marker='o', label="Call Option", color='blue')
+        plt.plot(range(1, steps + 1), put_prices, marker='x', label="Put Option", color='orange')
+        plt.title("Option Prices vs Steps (Binomial)")
         plt.xlabel('Steps')
         plt.ylabel('Option Price')
         plt.grid(True)
@@ -108,11 +112,13 @@ def index():
 
         # Option Price vs Stock Price (Call)
         S_vals = np.linspace(50, 150, 100)
-        s_prices = [heston_price(s_, K, T, r, kappa, theta, sigma_h, rho, v0, 'call') for s_ in S_vals]
+        call_prices = [heston_price(s_, K, T, r, kappa, theta, sigma_h, rho, v0, 'call') for s_ in S_vals]
+        put_prices = [heston_price(s_, K, T, r, kappa, theta, sigma_h, rho, v0, 'put') for s_ in S_vals]
         s_plot_path = 'static/heston_vs_s.png'
         plt.figure()
-        plt.plot(S_vals, s_prices, label="Call Option")
-        plt.title("Call Option Price vs Stock Price (Heston)")
+        plt.plot(S_vals, call_prices, label="Call Option", color='purple')
+        plt.plot(S_vals, put_prices, label="Put Option", color='brown')
+        plt.title("Option Prices vs Stock Price (Heston)")
         plt.xlabel('Stock Price (S)')
         plt.ylabel('Option Price')
         plt.grid(True)
@@ -122,11 +128,13 @@ def index():
 
         # Option Price vs ρ (Call)
         rho_vals = np.linspace(-1, 1, 100)
-        rho_prices = [heston_price(S, K, T, r, kappa, theta, sigma_h, r_, v0, 'call') for r_ in rho_vals]
+        call_rho_prices = [heston_price(S, K, T, r, kappa, theta, sigma_h, r_, v0, 'call') for r_ in rho_vals]
+        put_rho_prices = [heston_price(S, K, T, r, kappa, theta, sigma_h, r_, v0, 'put') for r_ in rho_vals]
         rho_plot_path = 'static/heston_vs_rho.png'
         plt.figure()
-        plt.plot(rho_vals, rho_prices, label="Call Option")
-        plt.title("Call Option Price vs Correlation ρ (Heston)")
+        plt.plot(rho_vals, call_rho_prices, label="Call Option", color='green')
+        plt.plot(rho_vals, put_rho_prices, label="Put Option", color='red')
+        plt.title("Option Prices vs Correlation ρ (Heston)")
         plt.xlabel('Correlation ρ')
         plt.ylabel('Option Price')
         plt.grid(True)
