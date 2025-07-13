@@ -18,7 +18,7 @@ def index():
         'T': 1,
         'r': 0.05,
         'sigma': 0.2,
-        'model': 'black_scholes',
+        'model': 'binomial',
         'steps': 100,
         'kappa': 1.5,
         'theta': 0.04,
@@ -58,7 +58,26 @@ def index():
     model = form_data['model']
     steps = form_data['steps']
 
-    if model == 'black_scholes':
+    if model == 'binomial':
+        call_price = binomial_option_price(S, K, T, r, sigma, steps, 'call')
+        put_price = binomial_option_price(S, K, T, r, sigma, steps, 'put')
+
+        # Plot
+        call_prices = [binomial_option_price(S, K, T, r, sigma, s, 'call') for s in range(1, steps + 1)]
+        put_prices = [binomial_option_price(S, K, T, r, sigma, s, 'put') for s in range(1, steps + 1)]
+        plot_path = 'static/option_price_plot.png'
+        plt.figure()
+        plt.plot(range(1, steps + 1), call_prices, marker='o', label="Call Option", color='blue')
+        plt.plot(range(1, steps + 1), put_prices, marker='x', label="Put Option", color='orange')
+        plt.title("Option Prices vs Steps (Binomial)")
+        plt.xlabel('Steps')
+        plt.ylabel('Option Price')
+        plt.grid(True)
+        plt.legend()
+        plt.savefig(plot_path)
+        plt.close()
+
+    elif model == 'black_scholes':
         call_price = black_scholes(S, K, T, r, sigma, 'call')
         put_price = black_scholes(S, K, T, r, sigma, 'put')
 
@@ -81,24 +100,7 @@ def index():
         if form_data['show_heatmap']:
             heatmap_path = generate_bs_heatmap(K, r, sigma, T, 'call')
 
-    elif model == 'binomial':
-        call_price = binomial_option_price(S, K, T, r, sigma, steps, 'call')
-        put_price = binomial_option_price(S, K, T, r, sigma, steps, 'put')
-
-        # Plot
-        call_prices = [binomial_option_price(S, K, T, r, sigma, s, 'call') for s in range(1, steps + 1)]
-        put_prices = [binomial_option_price(S, K, T, r, sigma, s, 'put') for s in range(1, steps + 1)]
-        plot_path = 'static/option_price_plot.png'
-        plt.figure()
-        plt.plot(range(1, steps + 1), call_prices, marker='o', label="Call Option", color='blue')
-        plt.plot(range(1, steps + 1), put_prices, marker='x', label="Put Option", color='orange')
-        plt.title("Option Prices vs Steps (Binomial)")
-        plt.xlabel('Steps')
-        plt.ylabel('Option Price')
-        plt.grid(True)
-        plt.legend()
-        plt.savefig(plot_path)
-        plt.close()
+    
 
     elif model == 'heston':
         kappa = form_data['kappa']
