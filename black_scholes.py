@@ -2,7 +2,7 @@ import math
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 import numpy as np
-import os
+import os   
 
 def black_scholes(S, K, T, r, sigma, option_type='call'):
     d1 = (math.log(S / K) + (r + 0.5 * sigma**2) * T) / (sigma * math.sqrt(T))
