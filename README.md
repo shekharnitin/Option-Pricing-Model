@@ -4,8 +4,8 @@ A robust, interactive web application for **European option pricing and visualiz
 
 ## 📚 Table of Contents
 
-- [Features](#-features)
 - [Live Demo](#-live-demo)
+- [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Screenshots](#-screenshots)
 - [Getting Started](#getting-started)
