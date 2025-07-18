@@ -61,10 +61,7 @@ The application is deployed and accessible at:
 
 **Installation & Run:**
 
-git clone https://github.com/shekharnitin/Option-Pricing-Model.git
-cd Option-Pricing-Model
-pip install -r requirements.txt
-python app.py
+<pre> ```bash git clone https://github.com/shekharnitin/Option-Pricing-Model.git cd Option-Pricing-Model pip install -r requirements.txt python app.py ``` </pre>
 
 Navigate to [http://localhost:5000](http://localhost:5000).
 
