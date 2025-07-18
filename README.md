@@ -2,6 +2,18 @@
 
 A robust, interactive web application for **European option pricing and visualization** using cutting-edge quantitative models, suitable for financial professionals, quantitative researchers, and students. Developed with an emphasis on clarity, flexibility, and user experience.
 
+## 📚 Table of Contents
+
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Screenshots](#-screenshots)
+- [Getting Started](#getting-started)
+- [Option Pricing Models](#option-pricing-models)
+- [Folder Structure](#folder-structure)
+- [License](#license)
+- [Connect](#connect)
+
 **🌐 Live Demo:**  
 The application is deployed and accessible at:  
 [https://option-pricing-model.onrender.com/](https://option-pricing-model.onrender.com/)
@@ -33,18 +45,6 @@ The application is deployed and accessible at:
 - **User-Friendly & Educational**
   - Intuitive controls and clear, guided parameter selection
   - Real-time feedback on pricing model parameter changes
-
-## 📚 Table of Contents
-
-- [Live Demo](#-live-demo)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Screenshots](#-screenshots)
-- [Getting Started](#getting-started)
-- [Option Pricing Models](#option-pricing-models)
-- [Folder Structure](#folder-structure)
-- [License](#license)
-- [Connect](#connect)
 
 ## 🛠️ Tech Stack
 
