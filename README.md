@@ -79,15 +79,15 @@ Interactively adjust parameters and see results update instantly in both the loc
 
 ## 📂 Folder Structure
 
-Option-Pricing-Model/
-│
-├── app.py # Flask app entry point
-├── black_scholes.py # Black-Scholes implementation
-├── binomial_model.py # Binomial Model implementation
-├── heston_model.py # Heston Model implementation
-├── requirements.txt
-├── static/ # CSS, assets
-├── templates/ # HTML template
+Option-Pricing-Model/<br>
+│<br>
+├── app.py # Flask app entry point<br>
+├── black_scholes.py # Black-Scholes implementation<br>
+├── binomial_model.py # Binomial Model implementation<br>
+├── heston_model.py # Heston Model implementation<br>
+├── requirements.txt<br>
+├── static/ # CSS, assets<br>
+├── templates/ # HTML template<br>
 └── README.md
 
 ## 💡 Why This Project Stands Out
