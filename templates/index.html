@@ -7,229 +7,7 @@
   <title>Option Pricing Calculator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #000000;
-      --card-bg: #f8f9fa;
-      --input-bg: #ffffff;
-      --border-color: #ccc;
-    }
-
-    .dark-mode {
-      --bg-color: #121212;
-      --text-color: #ffffff;
-      --card-bg: #1e1e1e;
-      --input-bg: #2c2c2c;
-      --border-color: #555;
-    }
-
-    html,
-    body,
-    .container-fluid {
-      background-color: var(--bg-color) !important;
-      color: var(--text-color) !important;
-      transition: all 0.3s ease;
-    }
-
-    footer {
-      background-color: var(--card-bg) !important;
-      color: var(--text-color) !important;
-      padding: 1rem;
-      text-align: center;
-      transition: margin-left 0.3s ease;
-    }
-
-    .form-control,
-    .form-select,
-    .btn {
-      background-color: var(--input-bg) !important;
-      color: var(--text-color) !important;
-      border: 1px solid var(--border-color) !important;
-      transition: all 0.3s ease;
-    }
-
-    label,
-    .form-check-label {
-      color: var(--text-color) !important;
-    }
-
-    img {
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      max-width: 100%;
-    }
-
-    .toggle-container {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      z-index: 1000;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background-color: var(--card-bg);
-      color: var(--text-color);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .toggle-container:hover {
-      opacity: 0.5;
-    }
-
-    .sidebar {
-      width: 300px;
-      background-color: var(--card-bg);
-      padding: 20px;
-      transition: transform 0.3s ease;
-      transform: translateX(0);
-      position: fixed;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-      z-index: 1000;
-
-      /* Firefox Scroll */
-      scrollbar-width: thin;
-      scrollbar-color: var(--border-color) var(--card-bg);
-    }
-
-    /* Sidebar Hidden */
-    .sidebar.hidden {
-      transform: translateX(-320px);
-    }
-
-    /* Toggle Button */
-    #toggleSidebarBtn {
-      position: fixed;
-      top: 10px;
-      left: 300px;
-      z-index: 1100;
-      transition: left 0.3s ease;
-    }
-
-    .sidebar.hidden+#toggleSidebarBtn {
-      left: 0;
-    }
-
-    /* Main Content Wrapper */
-    #main-content-wrapper {
-      margin-left: 300px;
-      transition: margin-left 0.3s ease;
-    }
-
-    .sidebar.hidden~#main-content-wrapper {
-      margin-left: 0;
-    }
-
-    /* Scrollbar Styling for Sidebar */
-    .sidebar::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-      background: var(--card-bg);
-      border-radius: 10px;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-      background-color: var(--border-color);
-      border-radius: 10px;
-      border: 2px solid var(--card-bg);
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-      background-color: #888;
-    }
-
-    /* Price Cards */
-    .price-card {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      transition: all 0.3s ease;
-
-      width: 100%;
-      max-width: 450px;
-      border-radius: 8px;
-      margin: 0 auto;
-    }
-
-    .call-card:hover {
-      border-color: #28a745;
-      background-color: rgba(40, 167, 69, 0.1);
-    }
-
-    .put-card:hover {
-      border-color: #dc3545;
-      background-color: rgba(220, 53, 69, 0.1);
-    }
-
-    .price-card h5 {
-      font-weight: 600;
-
-      margin-bottom: 0.5rem;
-    }
-
-
-    .price-card h4 {
-
-      margin-bottom: 0;
-    }
-
-    /* Footer Links */
-    footer a {
-      color: var(--text-color);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      opacity: 0.7;
-    }
-
-    .plot-image {
-      max-width: 80%;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .loader-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(255, 255, 255, 0.75);
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: var(--text-color);
-      transition: all 0.3s ease;
-    }
-
-    .dark-mode .loader-overlay {
-      background-color: rgba(18, 18, 18, 0.75);
-    }
-
-    .d-none {
-      display: none !important;
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
@@ -241,68 +19,111 @@
   </div>
 
   <div id="sidebar" class="sidebar">
+    <div class="btn-group mb-3" role="group" aria-label="Input Mode Toggle">
+      <button type="button" class="btn btn-outline-primary" id="customModeBtn">Custom Mode</button>
+      <button type="button" class="btn btn-outline-success" id="liveModeBtn">Live Mode</button>
+    </div>
     <h4 class="mb-3">Option Parameters</h4>
+
+    <!-- SINGLE FORM: (Inputs for BOTH modes inside, but only one visible at a time) -->
     <form method="POST" class="row g-3">
-      <div class="form-section">
-        <label>Stock Price (S)</label>
-        <input class="form-control" name="S" required value="{{ form_data['S'] }}" />
-      </div>
-      <div class="form-section">
-        <label>Strike Price (K)</label>
-        <input class="form-control" name="K" required value="{{ form_data['K'] }}" />
-      </div>
-      <div class="form-section">
-        <label>Time to Maturity (T in years)</label>
-        <input class="form-control" name="T" required value="{{ form_data['T'] }}" />
-      </div>
-      <div class="form-section">
-        <label>Risk-Free Rate (r)</label>
-        <input class="form-control" name="r" required value="{{ form_data['r'] }}" />
-      </div>
-      <div class="form-section">
-        <label>Volatility (σ)</label>
-        <input class="form-control" name="sigma" required value="{{ form_data['sigma'] }}" />
+      <!-- Hidden mode tracker -->
+      <input type="hidden" id="input_mode" name="input_mode" value="custom" />
+
+      <!-- Custom Data Mode Fields -->
+      <div id="customForm">
+        <div class="form-section">
+          <label>Stock Price (S)</label>
+          <input class="form-control" name="S" value="{{ form_data.get('S','') }}" />
+        </div>
+        <div class="form-section">
+          <label>Strike Price (K)</label>
+          <input class="form-control" name="K" value="{{ form_data.get('K','') }}" />
+        </div>
+        <div class="mb-3">
+          <label for="expiry_live" class="form-label">Expiry Date</label>
+          <input type="date" class="form-control" id="expiry_custom" name="expiry_custom"
+            value="{{ form_data.get('expiry_custom', '') }}">
+        </div>
+        <div class="form-section">
+          <label>Risk-Free Rate (r)</label>
+          <input class="form-control" name="r" value="{{ form_data.get('r','') }}" />
+        </div>
+        <div class="form-section">
+          <label>Volatility (σ)</label>
+          <input class="form-control" name="sigma" value="{{ form_data.get('sigma','') }}" />
+        </div>
+
+        <div id="heston-params" style="display: none">
+          <label>κ (Mean Reversion Rate)</label>
+          <input type="number" step="0.01" class="form-control" name="kappa" value="1.5" />
+          <label>θ (Long-run Variance)</label>
+          <input type="number" step="0.01" class="form-control" name="theta" value="0.04" />
+          <label>σ (Volatility of Volatility)</label>
+          <input type="number" step="0.01" class="form-control" name="sigma_h" value="0.3" />
+          <label>ρ (Correlation)</label>
+          <input type="number" step="0.01" class="form-control" name="rho" value="-0.7" />
+          <label>v₀ (Initial Variance)</label>
+          <input type="number" step="0.01" class="form-control" name="v0" value="0.04" />
+        </div>
+        <div class="form-section">
+          <label>Pricing Model</label>
+          <select class="form-select" name="model" id="model-select">
+            <option value="binomial">Binomial Tree</option>
+            <option value="black_scholes">Black-Scholes</option>
+            <option value="heston">Heston</option>
+          </select>
+        </div>
+        <div class="form-section" id="steps-container">
+          <label>Number of Steps (for Binomial only)</label>
+          <input type="number" class="form-control" name="steps" value="100" min="1" />
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="show_heatmap" id="show_heatmap" />
+          <label class="form-check-label" for="show_heatmap">
+            Show Heatmap (Only for Black-Scholes and Heston)
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Calculate</button>
       </div>
 
-      <div id="heston-params" style="display: none">
-        <label>κ (Mean Reversion Rate)</label>
-        <input type="number" step="0.01" class="form-control" name="kappa" value="1.5" />
-        <label>θ (Long-run Variance)</label>
-        <input type="number" step="0.01" class="form-control" name="theta" value="0.04" />
-        <label>σ (Volatility of Volatility)</label>
-        <input type="number" step="0.01" class="form-control" name="sigma_h" value="0.3" />
-        <label>ρ (Correlation)</label>
-        <input type="number" step="0.01" class="form-control" name="rho" value="-0.7" />
-        <label>v₀ (Initial Variance)</label>
-        <input type="number" step="0.01" class="form-control" name="v0" value="0.04" />
+      <!-- Live Data Mode Fields -->
+      <div id="liveForm" class="d-none">
+        <div class="mb-3">
+          <label for="ticker" class="form-label">Ticker Symbol (Yahoo Finance)</label>
+          <input type="text" class="form-control" id="ticker" name="ticker" placeholder="e.g. AAPL"
+            value="{{ form_data.get('ticker', '') }}">
+        </div>
+        <div class="mb-3">
+          <label for="K_live" class="form-label">Strike Price (K)</label>
+          <input type="number" step="any" class="form-control" id="K_live" name="K_live"
+            value="{{ form_data.get('K_live', '') }}">
+        </div>
+        <div class="mb-3">
+          <label for="expiry_live" class="form-label">Expiry Date</label>
+          <input type="date" class="form-control" id="expiry_live" name="expiry_live"
+            value="{{ form_data.get('expiry_live', '') }}">
+        </div>
+        <div class="mb-3">
+          <label for="r_live" class="form-label">Risk-Free Rate (%)</label>
+          <input type="number" step="any" class="form-control" id="r_live" name="r_live"
+            value="{{ form_data.get('r_live', '') }}">
+        </div>
+        <div class="mb-3">
+          <label for="sigma_live" class="form-label">Volatility (%)</label>
+          <input type="number" step="any" class="form-control" id="sigma_live" name="sigma_live"
+            value="{{ form_data.get('sigma_live', '') }}">
+          <div class="text">(Leave blank to auto-fetch from live data.)</div>
+        </div>
+        <button type="submit" class="btn btn-success">Calculate</button>
       </div>
-      <div class="form-section">
-        <label>Pricing Model</label>
-        <select class="form-select" name="model" id="model-select">
-          <option value="binomial">Binomial Tree</option>
-          <option value="black_scholes">Black-Scholes</option>
-          <option value="heston">Heston</option>
-        </select>
-      </div>
-      <div class="form-section" id="steps-container">
-        <label>Number of Steps (for Binomial only)</label>
-        <input type="number" class="form-control" name="steps" value="100" min="1" />
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="show_heatmap" id="show_heatmap" />
-        <label class="form-check-label" for="show_heatmap">
-          Show Heatmap (Only for Black-Scholes and Heston)
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary mt-2">Calculate</button>
     </form>
   </div>
 
   <div id="toggleSidebarBtn" class="btn btn-secondary btn-sm">❌</div>
   <div id="main-content-wrapper">
     <div id="page-content-wrapper">
-      <h2 id="current-model-heading" class="mb-3 text-center">Currently Selected Model: Black-Scholes</h2>
-
+      <h2 id="current-model-heading" class="mb-3 text-center">Option Pricing Model</h2>
       {% if call_price is not none and put_price is not none %}
       <div class="row mb-4">
         <div class="col-md-6">
@@ -323,26 +144,32 @@
       <h5 class="text-center">Option Price vs Steps (Binomial)</h5>
       <img src="{{ plot_path }}" class="plot-image" alt="Option Price Plot" />
       {% endif %}
-
       {% if bs_plot_path %}
       <h5 class="text-center">Option Price vs Stock Price (Black-Scholes)</h5>
       <img src="{{ bs_plot_path }}" class="plot-image" alt="BS Plot" />
       {% endif %}
+      {% if heatmap_call_path %}
+  <h5 class="text-center">Call Option Heatmap</h5>
+  <img src="{{ heatmap_call_path }}" class="plot-image" alt="Call Heatmap">
+{% endif %}
+{% if heatmap_put_path %}
+  <h5 class="text-center">Put Option Heatmap</h5>
+  <img src="{{ heatmap_put_path }}" class="plot-image" alt="Put Heatmap">
+{% endif %}
 
-      {% if heatmap_path %}
-      <h5 class="text-center">Option Price Heatmap</h5>
-      <img src="{{ heatmap_path }}" class="plot-image" alt="Heatmap" />
-      {% endif %}
 
       {% if s_plot_path %}
       <h5 class="text-center">Option Price vs Stock Price (Heston)</h5>
       <img src="{{ s_plot_path }}" class="plot-image" alt="Heston S" />
       {% endif %}
-
       {% if rho_plot_path %}
       <h5 class="text-center">Option Price vs Correlation (ρ)</h5>
       <img src="{{ rho_plot_path }}" class="plot-image" alt="Heston Rho" />
       {% endif %}
+      {% if error %}
+      <div class="alert alert-danger mt-3">{{ error }}</div>
+      {% endif %}
+
     </div>
     <div id="formLoader" class="loader-overlay d-none">
       <div class="spinner-border text-primary" role="status">
@@ -350,7 +177,6 @@
       </div>
       <p id="loaderText">Processing...</p>
     </div>
-
     <footer class="text-center mt-4">
       Made by NS &nbsp;
       <a href="https://www.linkedin.com/in/nitin-shekhar" target="_blank">
@@ -362,11 +188,28 @@
     </footer>
   </div>
 
-
-
-
-
   <script>
+    const customBtn = document.getElementById('customModeBtn');
+    const liveBtn = document.getElementById('liveModeBtn');
+    const customForm = document.getElementById('customForm');
+    const liveForm = document.getElementById('liveForm');
+    const inputMode = document.getElementById('input_mode');
+
+    customBtn.addEventListener('click', () => {
+      customBtn.classList.add('active');
+      liveBtn.classList.remove('active');
+      customForm.classList.remove('d-none');
+      liveForm.classList.add('d-none');
+      inputMode.value = "custom";
+    });
+    liveBtn.addEventListener('click', () => {
+      liveBtn.classList.add('active');
+      customBtn.classList.remove('active');
+      customForm.classList.add('d-none');
+      liveForm.classList.remove('d-none');
+      inputMode.value = "live";
+    });
+
     const switchInput = document.getElementById("themeSwitch");
     const themeLabel = document.getElementById("themeLabel");
     const savedTheme = localStorage.getItem("theme");
@@ -412,8 +255,6 @@
       loader.classList.remove("d-none");
     });
 
-
-
     const modelSelect = document.getElementById("model-select");
     const stepsContainer = document.getElementById("steps-container");
     const hestonParams = document.getElementById("heston-params");
@@ -422,25 +263,61 @@
       const model = modelSelect.value;
       stepsContainer.style.display = model === "binomial" ? "block" : "none";
       hestonParams.style.display = model === "heston" ? "block" : "none";
-    }
-    function toggleModelInputs() {
-      const model = modelSelect.value;
-      stepsContainer.style.display = model === "binomial" ? "block" : "none";
-      hestonParams.style.display = model === "heston" ? "block" : "none";
-
       // Update model heading
       const modelNameMap = {
         binomial: "Binomial Tree",
         black_scholes: "Black-Scholes",
         heston: "Heston"
       };
-      document.getElementById("current-model-heading").textContent =
-        "Currently Selected Model: " + modelNameMap[model];
+    }
+    modelSelect.addEventListener("change", toggleModelInputs);
+    // On page load, keep the mode selected
+
+
+    function setActiveMode(mode) {
+      if (mode === "live") {
+        inputMode.value = "live";
+
+        liveBtn.classList.add("btn-success");
+        liveBtn.classList.remove("btn-outline-success");
+
+        customBtn.classList.remove("btn-primary");
+        customBtn.classList.add("btn-outline-primary");
+
+        liveBtn.classList.add("active");
+        customBtn.classList.remove("active");
+
+        liveForm.classList.remove("d-none");
+        customForm.classList.add("d-none");
+      } else {
+        inputMode.value = "custom";
+
+        customBtn.classList.add("btn-primary");
+        customBtn.classList.remove("btn-outline-primary");
+
+        liveBtn.classList.remove("btn-success");
+        liveBtn.classList.add("btn-outline-success");
+
+        customBtn.classList.add("active");
+        liveBtn.classList.remove("active");
+
+        customForm.classList.remove("d-none");
+        liveForm.classList.add("d-none");
+      }
     }
 
+    // Button listeners
+    customBtn.addEventListener("click", () => setActiveMode("custom"));
+    liveBtn.addEventListener("click", () => setActiveMode("live"));
 
-    modelSelect.addEventListener("change", toggleModelInputs);
-    window.onload = toggleModelInputs;
+    // On page load, use the server-passed mode
+    window.onload = () => {
+      toggleModelInputs();
+      const currentMode = "{{ form_data.get('input_mode', 'custom') }}";
+      setActiveMode(currentMode);
+    };
+
+
   </script>
 </body>
 
