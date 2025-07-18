@@ -62,9 +62,9 @@ The application is deployed and accessible at:
 **Installation & Run:**
 
 <pre> bash git clone https://github.com/shekharnitin/Option-Pricing-Model.git 
-  cd Option-Pricing-Model 
-  pip install -r requirements.txt 
-  python app.py  </pre>
+cd Option-Pricing-Model 
+pip install -r requirements.txt 
+python app.py  </pre>
 
 Navigate to [http://localhost:5000](http://localhost:5000).
 
@@ -78,7 +78,7 @@ Interactively adjust parameters and see results update instantly in both the loc
 - **Heston Model:** Accounts for stochastic volatility, pricing options in more realistic markets.
 
 ## 📂 Folder Structure
-
+<pre>
 Option-Pricing-Model/<br>
 │<br>
 ├── app.py # Flask app entry point<br>
@@ -89,6 +89,7 @@ Option-Pricing-Model/<br>
 ├── static/ # CSS, assets<br>
 ├── templates/ # HTML template<br>
 └── README.md
+</pre>
 
 ## 💡 Why This Project Stands Out
 
