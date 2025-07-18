@@ -2,18 +2,6 @@
 
 A robust, interactive web application for **European option pricing and visualization** using cutting-edge quantitative models, suitable for financial professionals, quantitative researchers, and students. Developed with an emphasis on clarity, flexibility, and user experience.
 
-## 📚 Table of Contents
-
-- [Live Demo](#-live-demo)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Screenshots](#-screenshots)
-- [Getting Started](#getting-started)
-- [Option Pricing Models](#option-pricing-models)
-- [Folder Structure](#folder-structure)
-- [License](#license)
-- [Connect](#connect)
-
 **🌐 Live Demo:**  
 The application is deployed and accessible at:  
 [https://option-pricing-model.onrender.com/](https://option-pricing-model.onrender.com/)
@@ -26,26 +14,37 @@ The application is deployed and accessible at:
   - **Black-Scholes Model**
   - **Heston Stochastic Volatility Model**
 
+- **Live Mode and Custom Mode**
+  - Live Mode allows you to fetch live market data using yfinance.
+  - Custom Mode empowers you to input each parameter manually.
+
 - **Rich Visualizations**
   - Price vs. Stock Price plots
   - Price vs. Number of Steps (Binomial Model)
   - Price vs. Correlation (Heston Model)
-  - Heatmaps for Black-Scholes & Heston
-  - Dynamic Matplotlib-based plots
+  - Heatmaps for Black-Scholes & Heston models
+  - Dynamic, interactive Matplotlib-based charts
 
 - **Modern Responsive UI**
-  - Light/Dark mode toggle
+  - Supports Light/Dark mode
   - Collapsible parameter sidebar
   - Custom scrollbars & theme-based styles
 
 - **User-Friendly & Educational**
-  - Intuitive controls and clear parameter selection
+  - Intuitive controls and clear, guided parameter selection
   - Real-time feedback on pricing model parameter changes
 
-## 🧪 Live Demo
+## 📚 Table of Contents
 
-Explore the deployed version here:  
-👉 **[Option Pricing Model Web App](https://option-pricing-model.onrender.com/)**
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Screenshots](#-screenshots)
+- [Getting Started](#getting-started)
+- [Option Pricing Models](#option-pricing-models)
+- [Folder Structure](#folder-structure)
+- [License](#license)
+- [Connect](#connect)
 
 ## 🛠️ Tech Stack
 
@@ -53,10 +52,6 @@ Explore the deployed version here:
 |-------------|---------------|--------------------|------------------------------------|
 | HTML5, CSS3 | Python (Flask)| Matplotlib, NumPy  | Binomial, Black-Scholes, Heston    |
 | Bootstrap 5 |               |                    |                                    |
-
-## 🖥️ Screenshots
-
-> *[Screenshots or animated GIFs of key app pages or plots would be here to illustrate features to recruiters and users.]*
 
 ## Getting Started
 
@@ -73,11 +68,14 @@ python app.py
 
 Navigate to [http://localhost:5000](http://localhost:5000).
 
+**Live Mode is enabled by default.**  
+Interactively adjust parameters and see results update instantly in both the local version and the [deployed app](https://option-pricing-model.onrender.com/).
+
 ## Option Pricing Models
 
 - **Black-Scholes:** Analytical formula for European options, assuming constant volatility and no dividends.
-- **Binomial Tree:** Flexible discrete-time model, visualizing convergence and effect of step size.
-- **Heston Model:** Accounts for stochastic volatility, enabling pricing in more realistic markets.
+- **Binomial Tree:** Flexible discrete-time model, visualizing convergence and the effect of step size.
+- **Heston Model:** Accounts for stochastic volatility, pricing options in more realistic markets.
 
 ## 📂 Folder Structure
 
@@ -89,13 +87,14 @@ Option-Pricing-Model/
 ├── heston_model.py # Heston Model implementation
 ├── requirements.txt
 ├── static/ # CSS, assets
-├── templates/ # HTML templates
+├── templates/ # HTML template
 └── README.md
 
 ## 💡 Why This Project Stands Out
 
 - **Clear, Modularized Financial Engineering Code**
 - **Practical Application of Mathematical Finance Theory**
+- **Live Mode for Real-Time Financial Analysis**
 - **Rich, Modern Visualizations**
 - **Designed for Both Professional & Educational Use**
 - **Clean, Scalable Flask Architecture**
